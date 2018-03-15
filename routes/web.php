@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/dashboard', 'DashboardController@dashboard');
+Route::get('/', 'DashboardController@dashboard');
+Route::get('/datatable', 'DashboardController@data');
