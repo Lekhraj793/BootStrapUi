@@ -12,16 +12,23 @@ class DashboardController extends Controller
         return View('/frontend/dashboard');
     }
 
-    public function data(Request $request)
+    // public function data(Request $request)
+    // {
+    //     try{
+    //       $data= new DataTable();
+    //       $value= $data->all();
+    //       return view('/frontend/datatable', compact('value'));
+    //     }
+    //     catch(\Exception $e)
+    //     {
+    //         return redirect('/frontend/dashboard')->withError('data empty');
+    //     }
+    // }
+
+    public function data($value='')
     {
-        try{
           $data= new DataTable();
-          $value= $data->all();
+          $value= $data->db();
           return view('/frontend/datatable', compact('value'));
-        }
-        catch(\Exception $e)
-        {
-            return redirect('/frontend/dashboard')->withError('data empty');
-        }
     }
 }

@@ -12,17 +12,21 @@ class VariantTableSeeder extends Seeder
      */
     public function run()
     {
-      foreach (range(1, 5) as $index) {
-        Variant::insert([
-          'variant_id'=> random_int(1,10),
-          'product_id'=> random_int(4,12),
-          'product_title'=>str_random(10),
-          'title'=>str_random(12),
-          'price'=>random_int(700, 1400),
-          'inventory_quantity'=>(7),
-          'sku'=>('SID007')
-        ]);
-      }
+      for($i=0; $i<=10; $i++)
+        {
+          $sku= str_random(10);
+          $inventory_quantity= rand(12,45);
 
+          for($j=0; $j<=5; $j++)
+          {
+            Variant::insert(array('variant_id'=> rand(1,10),
+                  'product_id'=> rand(4,12),
+                  'product_title'=>str_random(10),
+                  'title'=>str_random(12),
+                  'price'=>rand(700, 1400),
+                  'inventory_quantity'=>$inventory_quantity,
+                  'sku'=>$sku));
+          }
+        }
     }
 }
